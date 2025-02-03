@@ -1,0 +1,372 @@
+/* Color Palette */
+:root {
+    --color-env: #ff6f77;
+    --color-env2: #ff8896;
+    --color-flap: #ff3334;
+    --color-bg: #FFD1D1;
+    --color-heart: #FF6347;
+}
+
+#envelope {
+    position: relative;
+    width: 280px;
+    height: 180px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 150px;
+    background-color: var(--color-flap);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Add styling for the heading */
+
+.heading {
+    text-align: center;
+    font-weight: 800; /* Match the font-weight of the button */
+    font-style: normal;
+    font-size: 3rem;
+    color: var(--color-env);
+    margin-top: 50px; /* Adjusted margin for better spacing from the top */
+    margin-bottom: 30px;
+    text-transform: uppercase; /* Match the text-transform of the button */
+    letter-spacing: 2px; /* Slight letter spacing for a polished look */
+    font-family: Arial, sans-serif; /* Use Arial, as in your buttons */
+    width: 100%; /* Make sure it takes up the full width */
+    display: block; /* Ensures it's a block-level element for centering */
+    margin-left: auto; /* Automatically adjusts the left margin */
+    margin-right: auto; /* Automatically adjusts the right margin */
+}
+
+
+/* Styling for the Read Letter Button (Initially Hidden) */
+.read-letter {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.read-letter button {
+    font-weight: 800;
+    font-size: 14px;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: solid 2px var(--color-env);
+    border-radius: 4px;
+    color: var(--color-env);
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Pop-up letter container (display: none initially) */
+.popup-letter {
+    position: fixed;
+    /*top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none; /* Hide by default */
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the popup */
+    display: flex;
+
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+   /* background-color: rgba(0, 0, 0, 0.7); /* Dark background for the overlay */
+    background-color: transparent;
+    z-index: 9999; /* Ensure it's on top of everything else */ 
+    margin: auto;
+    
+    /*width: 50%;
+    height: 100%;*/
+
+    width: auto;
+    height: auto;
+    overflow: hidden;
+}
+
+/*.popup-content {
+    background-color: white;
+    padding: 250px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+}/
+
+/* Pop-up content */
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: justify;
+    
+    width: 300px;
+    max-width: 90%;
+
+    /*width: 80%;
+    max-width: 900px;
+    box-sizing: border-box;*/
+
+    max-height: 70vh; /* Limit height */
+    overflow-y: auto; /* Allow scrolling if content exceeds max height */
+    white-space: pre-wrap; /* Handle long text wrapping */
+    word-wrap: break-word; /* Ensure long words break properly */
+}
+
+.popup-content p {
+    margin: 0; /* Reduced margin between paragraphs */
+    padding: 0;
+    line-height: 1.2; /* Adjust line height for better readability */
+}
+
+.popup-content button {
+    margin-top: 20px;
+    background-color: var(--color-env);
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 14px;
+    border: solid 2px var(--color-env);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: block;  /* Ensures the button is treated as a block-level element */
+    margin-left: auto;  /* Centers the button horizontally */
+    margin-right: auto; /* Centers the button horizontally */
+    
+}
+
+/* Envelope and Button Styles */
+.envlope-wrapper {
+    text-align: center;
+}
+
+/* Hide pop-up letter initially */
+.popup-letter {
+    display: none;
+}
+
+.front { 
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: 3;
+}
+
+.flap {
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-bottom: 86px solid transparent;
+    border-top: 98px solid var(--color-flap);
+    transform-origin: top;
+    pointer-events: none;
+}
+
+.pocket {
+    border-left: 140px solid var(--color-env);
+    border-right: 140px solid var(--color-env);
+    border-bottom: 90px solid var(--color-env2);
+    border-top: 90px solid transparent;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.letter {
+    position: relative;
+    background-color: #fff;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 90%;
+    top: 5%;
+    border-radius: 6px;
+    box-shadow: 0 2px 26px rgba(0, 0, 0, 0.12);
+}
+
+.letter:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 25%, rgba(215, 227, 239, 0.70) 55%, rgba(215, 227, 239, 1.00) 100%);
+}
+
+.words {
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    height: 14%;
+    background-color: #EEEFF0;
+}
+
+.words.line1 {
+    top: 15%;
+    width: 20%;
+    height: 7%;
+}
+
+.words.line2 {
+    top: 30%;
+}
+
+.words.line3 {
+    top: 50%;
+}
+
+.words.line4 {
+    top: 70%;
+}
+
+.open .flap {
+    transform: rotateX(180deg);
+    transition: transform .4s ease, z-index .6s;
+    z-index: 1;
+}
+
+.close .flap {
+    transform: rotateX(0deg);
+    transition: transform .4s .6s ease, z-index 1s;
+    z-index: 5;
+}
+
+.close .letter {
+    transform: translateY(0px); 
+    transition: transform .4s ease, z-index 1s;
+    z-index: 1;
+}
+
+.open .letter {
+    transform: translateY(-60px);
+    transition: transform .4s .6s ease, z-index .6s;
+    z-index: 2;
+}
+
+.hearts {
+    position: absolute;
+    top: 90px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.heart {
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    pointer-events: none;
+}
+
+.heart:before,
+.heart:after {
+    position: absolute;
+    content: "";
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: var(--color-heart);
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+    pointer-events: none;
+}
+
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.close .heart {
+    opacity: 0;
+    animation: none;
+}
+
+.a1 {
+    left: 20%;
+    transform: scale(0.6);
+    opacity: 1;
+    animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+    animation-fill-mode: forwards;
+    animation-delay: .7s;
+}
+
+.a2 {
+    left: 55%;
+    transform: scale(1);
+    opacity: 1;
+    animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+    animation-fill-mode: forwards;
+    animation-delay: .7s;
+}
+
+.a3 {
+    left: 10%;
+    transform: scale(0.8);
+    opacity: 1;
+    animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+    animation-fill-mode: forwards;
+    animation-delay: .7s;
+}
+
+@keyframes slideUp { 
+    0% { 
+        top: 0;
+    }
+    100% { 
+        top: -600px;
+    }
+}
+
+@keyframes sideSway {
+    0% {
+        margin-left: 0px;
+    }
+    100% {
+        margin-left: 50px;
+    }
+}
+
+body {
+    background-color: var(--color-bg);
+    background-size: cover; /* Ensures the image covers the entire background without stretching */
+    background-position: center; /* Centers the background image */
+    background-attachment: fixed; /* Keeps the background fixed when scrolling */
+    transition: background-image 0s ease; /* Smooth transition for background change */
+}
+
+.envlope-wrapper {
+    height: 380px;
+}
+
+.reset {
+    text-align: center;
+}
+
+.reset button {
+    font-weight: 800;
+    font-style: normal;
+    transition: all .1s linear;
+    background-color: transparent;
+    border: solid 2px var(--color-env);
+    border-radius: 4px;
+    color: var(--color-env);
+    display: inline-block;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 5px;
+    padding: 10px;
+    line-height: 1em;
+    text-decoration: none;
+    min-width: 120px;
+    cursor: pointer;
+}
+
+.reset button:hover {
+    background-color: var(--color-env);
+    color: #fff;
+}
